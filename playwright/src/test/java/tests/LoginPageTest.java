@@ -6,6 +6,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+
 public class LoginPageTest extends BaseTest {
 
         LoginPage loginPage;
@@ -21,6 +23,7 @@ public class LoginPageTest extends BaseTest {
             loginPage.login("standard_user", "secret_sauce");
 
             System.out.println("Page Title: " + loginPage.getTitle());
+            assertThat(page).hasTitle("Home"); //Assert.assertEquals(title, "Home");
         }
 
         @AfterClass

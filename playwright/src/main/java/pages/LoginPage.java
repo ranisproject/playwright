@@ -16,8 +16,10 @@ public class LoginPage {
 
     public void login(String user, String pass) {
         page.locator(username).fill(user);
-        page.locator(password).fill(pass);
-        page.locator(loginBtn).click();
+        page.locator(password).fill(pass); //driver.findElement(By.id("password")).sendKeys(pass);
+        page.locator(loginBtn).click(); //driver.findElement(By.id("login")).click();
+        page.onDialog(dialog -> dialog.accept()); //driver.switchTo().alert().accept(); ---alert
+        page.locator("#msg").textContent(); //driver.findElement(By.id("msg")).getText();
     }
 
     public String getTitle() {
